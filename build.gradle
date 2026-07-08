@@ -1,0 +1,40 @@
+plugins {
+    id 'java'
+}
+
+group = 'com.noble.braze.mock'
+version = '1.0.0'
+
+repositories {
+    mavenCentral()
+}
+
+java {
+    toolCompatibility = JavaVersion.VERSION_17
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
+
+dependencies {
+    // WireMock standalone - mocks the Braze SDK data endpoint and REST endpoints over HTTP
+    testImplementation 'org.wiremock:wiremock-standalone:3.9.1'
+
+    // TestNG
+    testImplementation 'org.testng:testng:7.10.2'
+
+    // HTTP client used by the sample tests to call the mock (swap for OkHttp/RestTemplate as needed)
+    testImplementation 'com.squareup.okhttp3:okhttp:4.12.0'
+
+    // JSON assertions
+    testImplementation 'org.skyscreamer:jsonassert:1.5.3'
+}
+
+test {
+    useTestNG() {
+        suites 'src/test/resources/testng.xml'
+    }
+    testLogging {
+        events "passed", "skipped", "failed"
+        showStandardStreams = true
+    }
+}

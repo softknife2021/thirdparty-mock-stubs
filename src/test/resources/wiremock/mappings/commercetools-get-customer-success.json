@@ -1,0 +1,30 @@
+{
+  "id": "commercetools-get-customer-success",
+  "name": "CommerceTools - GET /{projectKey}/customers/{id}",
+  "priority": 1,
+  "request": {
+    "method": "GET",
+    "urlPathPattern": "/noble-project/customers/customer-123",
+    "headers": {
+      "Authorization": {
+        "contains": "Bearer"
+      }
+    }
+  },
+  "response": {
+    "status": 200,
+    "headers": { "Content-Type": "application/json" },
+    "jsonBody": {
+      "id": "customer-123",
+      "version": 1,
+      "email": "jane.doe@example.com",
+      "firstName": "Jane",
+      "lastName": "Doe",
+      "isEmailVerified": true,
+      "addresses": []
+    }
+  },
+  "metadata": {
+    "notes": "Real integration resolves the {id} path segment from the customer id encoded/looked up via the caller's JWT - the mock just matches a fixed test id."
+  }
+}

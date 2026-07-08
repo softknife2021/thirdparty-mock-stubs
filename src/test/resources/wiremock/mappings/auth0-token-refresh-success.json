@@ -1,0 +1,22 @@
+{
+  "id": "auth0-token-refresh-success",
+  "name": "Auth0 - POST /oauth/token (refresh_token grant, valid token)",
+  "priority": 1,
+  "request": {
+    "method": "POST",
+    "urlPath": "/oauth/token",
+    "bodyPatterns": [
+      { "matchesJsonPath": "$[?(@.grant_type == 'refresh_token')]" },
+      { "matchesJsonPath": "$[?(@.refresh_token == 'MOCK_REFRESH_TOKEN')]" }
+    ]
+  },
+  "response": {
+    "status": 200,
+    "headers": { "Content-Type": "application/json" },
+    "jsonBody": {
+      "access_token": "MOCK_ACCESS_TOKEN_RENEWED.eyJ.SIGNATURE",
+      "token_type": "Bearer",
+      "expires_in": 86400
+    }
+  }
+}

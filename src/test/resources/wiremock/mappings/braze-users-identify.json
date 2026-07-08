@@ -1,0 +1,22 @@
+{
+  "id": "braze-users-identify",
+  "name": "Braze REST API - POST /users/identify",
+  "request": {
+    "method": "POST",
+    "urlPath": "/users/identify",
+    "headers": {
+      "Authorization": {
+        "contains": "Bearer"
+      }
+    }
+  },
+  "response": {
+    "status": 201,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "jsonBody": {
+      "message": "success"
+    }
+  }
+}

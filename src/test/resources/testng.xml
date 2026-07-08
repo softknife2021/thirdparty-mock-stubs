@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="BrazeMockStubSuite" verbose="1">
+    <test name="BrazeStubTests">
+        <classes>
+            <class name="com.noble.thirdparty.mock.braze.BrazeStubIntegrationTest"/>
+        </classes>
+    </test>
+    <test name="Auth0StubTests">
+        <classes>
+            <class name="com.noble.thirdparty.mock.auth0.Auth0StubIntegrationTest"/>
+        </classes>
+    </test>
+    <test name="CommerceToolsStubTests">
+        <classes>
+            <class name="com.noble.thirdparty.mock.commercetools.CommerceToolsStubIntegrationTest"/>
+        </classes>
+    </test>
+</suite>

@@ -1,0 +1,27 @@
+{
+  "id": "commercetools-create-customer-duplicate",
+  "name": "CommerceTools - POST /{projectKey}/customers (duplicate email)",
+  "priority": 2,
+  "request": {
+    "method": "POST",
+    "urlPath": "/noble-project/customers",
+    "bodyPatterns": [
+      { "matchesJsonPath": "$[?(@.email == 'existing.user@example.com')]" }
+    ]
+  },
+  "response": {
+    "status": 400,
+    "headers": { "Content-Type": "application/json" },
+    "jsonBody": {
+      "statusCode": 400,
+      "message": "There is already an existing customer with the email 'existing.user@example.com'.",
+      "errors": [
+        {
+          "code": "DuplicateField",
+          "field": "email",
+          "duplicateValue": "existing.user@example.com"
+        }
+      ]
+    }
+  }
+}

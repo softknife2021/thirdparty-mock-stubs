@@ -1,0 +1,27 @@
+{
+  "id": "auth0-token-signin-success",
+  "name": "Auth0 - POST /oauth/token (password grant, no MFA challenge)",
+  "priority": 2,
+  "request": {
+    "method": "POST",
+    "urlPath": "/oauth/token",
+    "bodyPatterns": [
+      { "matchesJsonPath": "$[?(@.grant_type == 'password')]" },
+      { "matchesJsonPath": "$[?(@.username == 'user@example.com')]" }
+    ]
+  },
+  "response": {
+    "status": 200,
+    "headers": { "Content-Type": "application/json" },
+    "jsonBody": {
+      "access_token": "MOCK_ACCESS_TOKEN.eyJ.SIGNATURE",
+      "id_token": "MOCK_ID_TOKEN.eyJ.SIGNATURE",
+      "refresh_token": "MOCK_REFRESH_TOKEN",
+      "token_type": "Bearer",
+      "expires_in": 86400
+    }
+  },
+  "metadata": {
+    "notes": "Happy path sign-in with MFA disabled/not enrolled for this test user."
+  }
+}

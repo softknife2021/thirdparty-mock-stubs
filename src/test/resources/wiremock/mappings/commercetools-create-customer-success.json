@@ -1,0 +1,29 @@
+{
+  "id": "commercetools-create-customer-success",
+  "name": "CommerceTools - POST /{projectKey}/customers (sign-up)",
+  "priority": 1,
+  "request": {
+    "method": "POST",
+    "urlPath": "/noble-project/customers",
+    "bodyPatterns": [
+      { "matchesJsonPath": "$[?(@.email == 'new.user@example.com')]" }
+    ]
+  },
+  "response": {
+    "status": 201,
+    "headers": { "Content-Type": "application/json" },
+    "jsonBody": {
+      "customer": {
+        "id": "customer-456",
+        "version": 1,
+        "email": "new.user@example.com",
+        "firstName": "New",
+        "lastName": "User"
+      },
+      "cart": null
+    }
+  },
+  "metadata": {
+    "notes": "Sign-up flow triggerable from DTC (web) and Mobile client - same endpoint/shape for both."
+  }
+}

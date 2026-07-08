@@ -1,0 +1,22 @@
+{
+  "id": "commercetools-get-customer-not-found",
+  "name": "CommerceTools - GET /{projectKey}/customers/{id} (unknown id)",
+  "request": {
+    "method": "GET",
+    "urlPathPattern": "/noble-project/customers/[a-zA-Z0-9-]+",
+    "headers": {
+      "Authorization": {
+        "contains": "Bearer"
+      }
+    }
+  },
+  "response": {
+    "status": 404,
+    "headers": { "Content-Type": "application/json" },
+    "jsonBody": {
+      "statusCode": 404,
+      "message": "The Customer with ID 'unknown-id' was not found."
+    }
+  },
+  "priority": 10
+}

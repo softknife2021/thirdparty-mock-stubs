@@ -1,0 +1,28 @@
+{
+  "id": "braze-users-track",
+  "name": "Braze REST API - POST /users/track",
+  "request": {
+    "method": "POST",
+    "urlPath": "/users/track",
+    "headers": {
+      "Authorization": {
+        "contains": "Bearer"
+      }
+    }
+  },
+  "response": {
+    "status": 201,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "jsonBody": {
+      "message": "success",
+      "attributes_processed": 1,
+      "events_processed": 1,
+      "purchases_processed": 0
+    }
+  },
+  "metadata": {
+    "notes": "Server-side REST endpoint (rest.<cluster>.braze.com/users/track). Used for backend imports, not called by the mobile RN SDK directly."
+  }
+}

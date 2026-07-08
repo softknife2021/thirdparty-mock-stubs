@@ -1,0 +1,20 @@
+{
+  "id": "auth0-token-mfa-otp-invalid",
+  "name": "Auth0 - POST /oauth/token (mfa-otp grant, wrong code)",
+  "priority": 2,
+  "request": {
+    "method": "POST",
+    "urlPath": "/oauth/token",
+    "bodyPatterns": [
+      { "matchesJsonPath": "$[?(@.grant_type == 'http://auth0.com/oauth/grant-type/mfa-otp')]" }
+    ]
+  },
+  "response": {
+    "status": 403,
+    "headers": { "Content-Type": "application/json" },
+    "jsonBody": {
+      "error": "invalid_grant",
+      "error_description": "Invalid otp_code."
+    }
+  }
+}

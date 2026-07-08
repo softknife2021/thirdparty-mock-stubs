@@ -1,0 +1,20 @@
+{
+  "id": "auth0-token-refresh-invalid",
+  "name": "Auth0 - POST /oauth/token (refresh_token grant, revoked/expired token)",
+  "priority": 2,
+  "request": {
+    "method": "POST",
+    "urlPath": "/oauth/token",
+    "bodyPatterns": [
+      { "matchesJsonPath": "$[?(@.grant_type == 'refresh_token')]" }
+    ]
+  },
+  "response": {
+    "status": 401,
+    "headers": { "Content-Type": "application/json" },
+    "jsonBody": {
+      "error": "invalid_grant",
+      "error_description": "Unknown or invalid refresh token."
+    }
+  }
+}

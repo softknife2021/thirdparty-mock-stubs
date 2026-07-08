@@ -1,0 +1,22 @@
+{
+  "id": "braze-users-delete",
+  "name": "Braze REST API - POST /users/delete",
+  "request": {
+    "method": "POST",
+    "urlPath": "/users/delete",
+    "headers": {
+      "Authorization": {
+        "contains": "Bearer"
+      }
+    }
+  },
+  "response": {
+    "status": 201,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "jsonBody": {
+      "message": "success"
+    }
+  }
+}

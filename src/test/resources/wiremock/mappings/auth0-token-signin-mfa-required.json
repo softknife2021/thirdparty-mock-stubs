@@ -1,0 +1,25 @@
+{
+  "id": "auth0-token-signin-mfa-required",
+  "name": "Auth0 - POST /oauth/token (password grant, MFA required)",
+  "priority": 1,
+  "request": {
+    "method": "POST",
+    "urlPath": "/oauth/token",
+    "bodyPatterns": [
+      { "matchesJsonPath": "$[?(@.grant_type == 'password')]" },
+      { "matchesJsonPath": "$[?(@.username == 'mfa-user@example.com')]" }
+    ]
+  },
+  "response": {
+    "status": 403,
+    "headers": { "Content-Type": "application/json" },
+    "jsonBody": {
+      "error": "mfa_required",
+      "error_description": "Multifactor authentication required",
+      "mfa_token": "MOCK_MFA_TOKEN"
+    }
+  },
+  "metadata": {
+    "notes": "Client should follow up with POST /mfa/challenge using mfa_token, then re-call /oauth/token with grant_type=http://auth0.com/oauth/grant-type/mfa-otp and the OTP code (see auth0-mfa-challenge.json and auth0-token-mfa-otp-success.json)."
+  }
+}

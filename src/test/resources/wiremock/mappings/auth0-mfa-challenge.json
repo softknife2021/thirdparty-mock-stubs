@@ -1,0 +1,19 @@
+{
+  "id": "auth0-mfa-challenge",
+  "name": "Auth0 - POST /mfa/challenge",
+  "request": {
+    "method": "POST",
+    "urlPath": "/mfa/challenge",
+    "bodyPatterns": [
+      { "matchesJsonPath": "$[?(@.mfa_token == 'MOCK_MFA_TOKEN')]" }
+    ]
+  },
+  "response": {
+    "status": 200,
+    "headers": { "Content-Type": "application/json" },
+    "jsonBody": {
+      "challenge_type": "otp",
+      "binding_method": "prompt"
+    }
+  }
+}

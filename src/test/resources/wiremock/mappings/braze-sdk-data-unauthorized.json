@@ -1,0 +1,24 @@
+{
+  "id": "braze-sdk-data-endpoint-unauthorized",
+  "name": "Braze SDK data endpoint - invalid api_key (negative case)",
+  "priority": 1,
+  "request": {
+    "method": "POST",
+    "urlPath": "/api/v3/data",
+    "bodyPatterns": [
+      {
+        "matchesJsonPath": "$[?(@.api_key == 'INVALID_KEY')]"
+      }
+    ]
+  },
+  "response": {
+    "status": 401,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "jsonBody": {
+      "success": false,
+      "error": "Invalid API key"
+    }
+  }
+}

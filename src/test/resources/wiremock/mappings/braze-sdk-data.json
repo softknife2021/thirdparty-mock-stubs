@@ -1,0 +1,37 @@
+{
+  "id": "braze-sdk-data-endpoint",
+  "name": "Braze SDK data endpoint (sessions / events / attributes)",
+  "request": {
+    "method": "POST",
+    "urlPath": "/api/v3/data",
+    "headers": {
+      "Content-Type": {
+        "contains": "application/json"
+      }
+    },
+    "bodyPatterns": [
+      {
+        "matchesJsonPath": "$.device_id"
+      },
+      {
+        "matchesJsonPath": "$.api_key"
+      }
+    ]
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "jsonBody": {
+      "events_processed": 1,
+      "attributes_processed": 1,
+      "purchases_processed": 0,
+      "success": true,
+      "error": null
+    }
+  },
+  "metadata": {
+    "notes": "This is the client-side SDK endpoint (sdk.<cluster>.braze.com/api/v3/data), NOT the server REST API. The RN JS layer never calls this directly - it calls native Braze.initialize()/logCustomEvent()/changeUser() etc, which the native Android (Kotlin/Java) or iOS (Swift) SDK batches and POSTs here on a background dispatch thread/timer."
+  }
+}

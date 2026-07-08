@@ -1,0 +1,24 @@
+{
+  "id": "auth0-token-mfa-otp-success",
+  "name": "Auth0 - POST /oauth/token (mfa-otp grant, correct code)",
+  "priority": 1,
+  "request": {
+    "method": "POST",
+    "urlPath": "/oauth/token",
+    "bodyPatterns": [
+      { "matchesJsonPath": "$[?(@.grant_type == 'http://auth0.com/oauth/grant-type/mfa-otp')]" },
+      { "matchesJsonPath": "$[?(@.otp == '123456')]" }
+    ]
+  },
+  "response": {
+    "status": 200,
+    "headers": { "Content-Type": "application/json" },
+    "jsonBody": {
+      "access_token": "MOCK_ACCESS_TOKEN.eyJ.SIGNATURE",
+      "id_token": "MOCK_ID_TOKEN.eyJ.SIGNATURE",
+      "refresh_token": "MOCK_REFRESH_TOKEN",
+      "token_type": "Bearer",
+      "expires_in": 86400
+    }
+  }
+}
